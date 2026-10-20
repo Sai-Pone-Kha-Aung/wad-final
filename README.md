@@ -47,11 +47,11 @@
    ```
 3. Verify your `.env` configuration:
    ```env
-   MONGODB_USER=saihunter2016_db_user
-   MONGODB_PASS=qRv5n2EwQWSzKwyr
-   MONGODB_URI=mongodb+srv://saihunter2016_db_user:qRv5n2EwQWSzKwyr@cluster0.cay0lih.mongodb.net/
-   DB_NAME=online-course-service
-   JWT_SECRET=c3eb82eaf05c2c88dcd29e9c56a96b16d7b96f1b605014efe4c5752837449649
+   MONGODB_USER=<Enter Your DB User>
+   MONGODB_PASS=<Enter Your DB Password>
+   MONGODB_URI=<Enter Your DB URI>
+   DB_NAME=<Enter Your DB Name>
+   JWT_SECRET=<Enter Your JWT Secret>
    ```
 4. Seed the database with the test users and initial courses:
    ```bash
