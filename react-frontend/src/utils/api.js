@@ -1,6 +1,7 @@
 // src/utils/api.js
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:3000/api";
 
 export async function request(endpoint, options = {}) {
   const url = endpoint.startsWith("http")
@@ -29,7 +30,8 @@ export async function request(endpoint, options = {}) {
     const data = await response.json().catch(() => null);
 
     if (!response.ok) {
-      const errorMessage = data?.message || `Request failed with status ${response.status}`;
+      const errorMessage =
+        data?.message || `Request failed with status ${response.status}`;
       const error = new Error(errorMessage);
       error.status = response.status;
       error.data = data;

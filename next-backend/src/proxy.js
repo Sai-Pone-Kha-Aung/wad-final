@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { verifyJWT } from "./lib/auth";
-import corsHeaders, { getCorsHeaders } from "./lib/cors";
+import corsHeaders from "./lib/cors";
 import {
   X_HEADER_USER_EMAIL,
   X_HEADER_USER_ID,
@@ -13,7 +13,7 @@ export function proxy(request) {
   if (request.method === "OPTIONS") {
     return new NextResponse(null, {
       status: 204,
-      headers: getCorsHeaders(request),
+      headers: corsHeaders,
     });
   }
 
@@ -21,8 +21,7 @@ export function proxy(request) {
 
   // Public endpoints that don't require authentication
   const isPublicAuthRoute =
-    pathname === "/api/auth/login" ||
-    pathname === "/api/auth/logout";
+    pathname === "/api/auth/login" || pathname === "/api/auth/logout";
 
   if (isPublicAuthRoute) {
     return NextResponse.next();
@@ -69,4 +68,3 @@ export function proxy(request) {
 export const config = {
   matcher: ["/api/:path*"],
 };
-
